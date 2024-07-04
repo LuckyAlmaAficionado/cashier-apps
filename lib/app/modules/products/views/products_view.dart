@@ -62,82 +62,83 @@ class ProductsView extends GetView<ProductsController> {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              Get.dialog(AlertDialog(
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
-                ),
-                content: Container(
-                  height: 150,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: Get.width,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Get.to(() => ProductAddView(), arguments: 'edit');
-                          },
-                          child: Text(
-                            'Edit',
-                            style: normalTextStyle.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: Get.width,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                          ),
-                          onPressed: () async {
-                            Get.back();
-                            await Get.dialog(
-                              AlertDialog(
-                                title: Text(
-                                  'Hapus',
-                                  style: normalTextStyle,
-                                ),
-                                content: Text(
-                                  'Apakah anda yakin ingin menghapus?',
-                                  style: normalTextStyle,
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Get.back();
-                                    },
-                                    child: Text(
-                                      'Batal',
-                                      style: normalTextStyle.copyWith(
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Get.back();
-                                    },
-                                    child: Text('Ya'),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                          child: Text(
-                            'Hapus',
-                            style: normalTextStyle.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ));
+              Get.to(() => ProductAddView(), arguments: 'edit');
+              // Get.dialog(AlertDialog(
+              //   contentPadding: const EdgeInsets.symmetric(
+              //     horizontal: 20,
+              //     vertical: 10,
+              //   ),
+              //   content: Container(
+              //     height: 150,
+              //     child: Column(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         SizedBox(
+              //           width: Get.width,
+              //           child: ElevatedButton(
+              //             onPressed: () {
+              //               Get.to(() => ProductAddView(), arguments: 'edit');
+              //             },
+              //             child: Text(
+              //               'Edit',
+              //               style: normalTextStyle.copyWith(
+              //                 fontWeight: FontWeight.w600,
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //         SizedBox(
+              //           width: Get.width,
+              //           child: ElevatedButton(
+              //             style: ElevatedButton.styleFrom(
+              //               backgroundColor: Colors.red,
+              //             ),
+              //             onPressed: () async {
+              //               Get.back();
+              //               await Get.dialog(
+              //                 AlertDialog(
+              //                   title: Text(
+              //                     'Hapus',
+              //                     style: normalTextStyle,
+              //                   ),
+              //                   content: Text(
+              //                     'Apakah anda yakin ingin menghapus?',
+              //                     style: normalTextStyle,
+              //                   ),
+              //                   actions: [
+              //                     TextButton(
+              //                       onPressed: () {
+              //                         Get.back();
+              //                       },
+              //                       child: Text(
+              //                         'Batal',
+              //                         style: normalTextStyle.copyWith(
+              //                           fontWeight: FontWeight.w600,
+              //                         ),
+              //                       ),
+              //                     ),
+              //                     TextButton(
+              //                       onPressed: () {
+              //                         Get.back();
+              //                       },
+              //                       child: Text('Ya'),
+              //                     ),
+              //                   ],
+              //                 ),
+              //               );
+              //             },
+              //             child: Text(
+              //               'Hapus',
+              //               style: normalTextStyle.copyWith(
+              //                 fontWeight: FontWeight.w600,
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ));
             },
             child: Card(
               shape: RoundedRectangleBorder(
