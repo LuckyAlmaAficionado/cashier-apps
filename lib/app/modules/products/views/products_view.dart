@@ -1,5 +1,6 @@
 import 'package:cashier_app/app/modules/main_menu/views/main_menu_view.dart';
 import 'package:cashier_app/app/modules/products/views/product_add_view.dart';
+import 'package:cashier_app/app/utils/drawer.dart';
 import 'package:cashier_app/app/utils/shared.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class ProductsView extends GetView<ProductsController> {
   Widget build(BuildContext context) {
     Get.put(ProductsController());
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
