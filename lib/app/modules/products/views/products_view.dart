@@ -1,12 +1,11 @@
-import 'package:cashier_app/app/modules/main_menu/views/main_menu_view.dart';
-import 'package:cashier_app/app/modules/products/views/product_add_view.dart';
-import 'package:cashier_app/app/utils/drawer.dart';
-import 'package:cashier_app/app/utils/shared.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 import 'package:cashier_app/app/controllers/widget_setting_controller.dart';
+import 'package:cashier_app/app/modules/products/views/product_add_view.dart';
+import 'package:cashier_app/app/utils/drawer.dart';
+import 'package:cashier_app/app/utils/shared.dart';
 
 import '../controllers/products_controller.dart';
 
