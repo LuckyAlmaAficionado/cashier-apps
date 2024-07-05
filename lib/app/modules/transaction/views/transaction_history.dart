@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:cashier_app/app/utils/shared.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TransactionHistory extends StatefulWidget {
   const TransactionHistory({super.key});
@@ -15,20 +16,23 @@ class _TransactionHistoryState extends State<TransactionHistory> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          color: Colors.white,
-          padding: const EdgeInsets.all(20.0),
-          child: TextField(
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 5,
-              ),
-              prefixIcon: Icon(Icons.search),
-              hintText: 'Cari No. Transaksi',
-              hintStyle: normalTextStyle,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
+        Material(
+          elevation: 3,
+          child: Container(
+            color: Colors.white,
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 5,
+                ),
+                prefixIcon: Icon(Icons.search),
+                hintText: 'Cari No. Transaksi',
+                hintStyle: normalTextStyle,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
             ),
           ),
@@ -48,11 +52,14 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Kamis, 04 Jul 2024', style: normalTextStyle),
+                          Text(
+                            '${DateFormat('dd MMM yyyy', 'id_ID').format(DateTime.now().add(Duration(days: index)))}',
+                            style: normalTextStyle,
+                          ),
                           Text(
                             'Rp60.000',
                             style: normalTextStyle.copyWith(
-                              color: Colors.blue[900],
+                              color: Colors.deepOrange,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -91,7 +98,10 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
-                                  Text('22:40', style: normalTextStyle)
+                                  Text(
+                                    '${DateFormat('HH:mm', 'id_ID').format(DateTime.now().add(Duration(hours: index * Random().nextInt(100))))}',
+                                    style: normalTextStyle,
+                                  )
                                 ],
                               ),
                               Icon(Icons.keyboard_arrow_right_outlined)

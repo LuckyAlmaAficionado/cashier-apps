@@ -87,7 +87,7 @@ class MainMenuView extends GetView<MainMenuController> {
                         decoration: BoxDecoration(
                           color: (index != controller.itemSelected.value)
                               ? Colors.grey.shade100
-                              : Colors.green.shade100,
+                              : Colors.deepOrange.shade100,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Center(
@@ -115,40 +115,56 @@ class MainMenuView extends GetView<MainMenuController> {
                         controller.w.settings[controller.w.settingValue.value]
                             ['childAspectRatio'],
                   ),
+                  itemCount: 5,
                   itemBuilder: (context, index) {
                     return Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(child: Icon(Icons.deblur)),
-                                  Text(
-                                    'Menu ${index + 1}',
-                                    style: normalTextStyle.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10),
+                                    ),
+                                    child: Image.network(
+                                      'https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg',
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                  Text(
-                                    'Rp. 19.000',
-                                    style: normalTextStyle.copyWith(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        'Menu ${index + 1}',
+                                        style: normalTextStyle.copyWith(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Rp. 19.000',
+                                        style: normalTextStyle.copyWith(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     );
                   },
@@ -170,13 +186,13 @@ class MainMenuView extends GetView<MainMenuController> {
                       Text(
                         'Total Pesanan',
                         style: normalTextStyle.copyWith(
-                          fontSize: 12,
+                          fontSize: 14,
                         ),
                       ),
                       Text(
                         '1',
                         style: normalTextStyle.copyWith(
-                          fontSize: 12,
+                          fontSize: 14,
                         ),
                       )
                     ],
@@ -185,6 +201,9 @@ class MainMenuView extends GetView<MainMenuController> {
                     onPressed: () {
                       Get.to(() => ProductListSelectedView());
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepOrange,
+                    ),
                     child: Text(
                       'proses pesanan',
                       style: normalTextStyle.copyWith(

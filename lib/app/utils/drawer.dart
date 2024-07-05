@@ -20,7 +20,7 @@ class CustomDrawer extends StatelessWidget {
               Container(
                 height: 210,
                 width: constraints.maxWidth,
-                color: Colors.indigo,
+                color: Colors.deepOrange,
                 child: SafeArea(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -29,6 +29,13 @@ class CustomDrawer extends StatelessWidget {
                       CircleAvatar(
                         radius: 35,
                         backgroundColor: Colors.white,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image.network(
+                            'https://cdn.icon-icons.com/icons2/2468/PNG/512/user_icon_149329.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 15),
                       SizedBox(
@@ -50,7 +57,7 @@ class CustomDrawer extends StatelessWidget {
               ListTile(
                 shape: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    width: 0.5,
+                    width: 0.3,
                     color: Colors.grey,
                   ),
                 ),
@@ -73,7 +80,7 @@ class CustomDrawer extends StatelessWidget {
               ListTile(
                 shape: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    width: 0.5,
+                    width: 0.3,
                     color: Colors.grey,
                   ),
                 ),
@@ -96,7 +103,7 @@ class CustomDrawer extends StatelessWidget {
               ListTile(
                 shape: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    width: 0.5,
+                    width: 0.3,
                     color: Colors.grey,
                   ),
                 ),
@@ -119,7 +126,7 @@ class CustomDrawer extends StatelessWidget {
               ListTile(
                 shape: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    width: 0.5,
+                    width: 0.3,
                     color: Colors.grey,
                   ),
                 ),
@@ -141,7 +148,7 @@ class CustomDrawer extends StatelessWidget {
               ListTile(
                 shape: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    width: 0.5,
+                    width: 0.3,
                     color: Colors.grey,
                   ),
                 ),
@@ -163,7 +170,7 @@ class CustomDrawer extends StatelessWidget {
               ListTile(
                 shape: UnderlineInputBorder(
                   borderSide: BorderSide(
-                    width: 0.5,
+                    width: 0.3,
                     color: Colors.grey,
                   ),
                 ),

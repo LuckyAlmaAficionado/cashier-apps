@@ -59,120 +59,61 @@ class ProductsView extends GetView<ProductsController> {
           childAspectRatio: w.settings[w.settingValue.value]
               ['childAspectRatio'],
         ),
+        itemCount: 10,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {
-              Get.to(() => ProductAddView(), arguments: 'edit');
-              // Get.dialog(AlertDialog(
-              //   contentPadding: const EdgeInsets.symmetric(
-              //     horizontal: 20,
-              //     vertical: 10,
-              //   ),
-              //   content: Container(
-              //     height: 150,
-              //     child: Column(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         SizedBox(
-              //           width: Get.width,
-              //           child: ElevatedButton(
-              //             onPressed: () {
-              //               Get.to(() => ProductAddView(), arguments: 'edit');
-              //             },
-              //             child: Text(
-              //               'Edit',
-              //               style: normalTextStyle.copyWith(
-              //                 fontWeight: FontWeight.w600,
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //         SizedBox(
-              //           width: Get.width,
-              //           child: ElevatedButton(
-              //             style: ElevatedButton.styleFrom(
-              //               backgroundColor: Colors.red,
-              //             ),
-              //             onPressed: () async {
-              //               Get.back();
-              //               await Get.dialog(
-              //                 AlertDialog(
-              //                   title: Text(
-              //                     'Hapus',
-              //                     style: normalTextStyle,
-              //                   ),
-              //                   content: Text(
-              //                     'Apakah anda yakin ingin menghapus?',
-              //                     style: normalTextStyle,
-              //                   ),
-              //                   actions: [
-              //                     TextButton(
-              //                       onPressed: () {
-              //                         Get.back();
-              //                       },
-              //                       child: Text(
-              //                         'Batal',
-              //                         style: normalTextStyle.copyWith(
-              //                           fontWeight: FontWeight.w600,
-              //                         ),
-              //                       ),
-              //                     ),
-              //                     TextButton(
-              //                       onPressed: () {
-              //                         Get.back();
-              //                       },
-              //                       child: Text('Ya'),
-              //                     ),
-              //                   ],
-              //                 ),
-              //               );
-              //             },
-              //             child: Text(
-              //               'Hapus',
-              //               style: normalTextStyle.copyWith(
-              //                 fontWeight: FontWeight.w600,
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ));
-            },
+            onTap: () => Get.to(
+              () => ProductAddView(),
+              arguments: 'edit',
+            ),
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(child: Icon(Icons.deblur)),
-                          Text(
-                            'Menu ${index + 1}',
-                            style: normalTextStyle.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
+                            child: Image.network(
+                              'https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg',
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          Text(
-                            'Rp. 19.000',
-                            style: normalTextStyle.copyWith(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              Text(
+                                'Menu ${index + 1}',
+                                style: normalTextStyle.copyWith(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                              Text(
+                                'Rp. 19.000',
+                                style: normalTextStyle.copyWith(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           );

@@ -6,6 +6,7 @@ import 'package:cashier_app/app/controllers/widget_setting_controller.dart';
 import 'package:cashier_app/app/modules/products/controllers/products_controller.dart';
 import 'package:cashier_app/app/utils/shared.dart';
 
+// ignore: must_be_immutable
 class ProductListSelectedView extends GetView {
   ProductListSelectedView({Key? key}) : super(key: key);
 
@@ -20,10 +21,7 @@ class ProductListSelectedView extends GetView {
       appBar: AppBar(
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
-        title: const Text(
-          'Item Selected',
-          style: TextStyle(color: Colors.black),
-        ),
+        title: Text('Order'),
         elevation: 0,
         centerTitle: true,
       ),
@@ -62,6 +60,13 @@ class ProductListSelectedView extends GetView {
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(10),
                         ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            'https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +79,7 @@ class ProductListSelectedView extends GetView {
                               fontWeight: FontWeight.normal,
                             ),
                           ),
-                          const SizedBox(height: 15),
+                          const SizedBox(height: 20),
                           Row(
                             children: [
                               Container(
@@ -86,7 +91,7 @@ class ProductListSelectedView extends GetView {
                                 height: 25,
                                 child: IconButton(
                                   padding: const EdgeInsets.all(0),
-                                  onPressed: () {},
+                                  onPressed: () => item.value--,
                                   icon: Icon(
                                     Icons.remove,
                                     color: Colors.white,
@@ -95,10 +100,12 @@ class ProductListSelectedView extends GetView {
                                 ),
                               ),
                               const SizedBox(width: 10),
-                              Text(
-                                '${item.value}',
-                                style: normalTextStyle.copyWith(
-                                  fontSize: 14,
+                              Obx(
+                                () => Text(
+                                  '${item.value}',
+                                  style: normalTextStyle.copyWith(
+                                    fontSize: 14,
+                                  ),
                                 ),
                               ),
                               const SizedBox(width: 10),
@@ -111,7 +118,7 @@ class ProductListSelectedView extends GetView {
                                 height: 25,
                                 child: IconButton(
                                   padding: const EdgeInsets.all(0),
-                                  onPressed: () {},
+                                  onPressed: () => item.value++,
                                   icon: Icon(
                                     Icons.add,
                                     color: Colors.white,
@@ -135,7 +142,7 @@ class ProductListSelectedView extends GetView {
                               fontWeight: FontWeight.normal,
                             ),
                           ),
-                          const SizedBox(height: 15),
+                          const SizedBox(height: 20),
                           Container(
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
@@ -258,11 +265,11 @@ class ProductListSelectedView extends GetView {
                       children: [
                         Text(
                           'Total Price:',
-                          style: normalTextStyle.copyWith(fontSize: 12),
+                          style: normalTextStyle.copyWith(fontSize: 14),
                         ),
                         Text(
                           'Rp.${controller.totalPrice}',
-                          style: normalTextStyle.copyWith(fontSize: 12),
+                          style: normalTextStyle.copyWith(fontSize: 14),
                         ),
                       ],
                     ),

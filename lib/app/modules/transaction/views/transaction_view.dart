@@ -33,8 +33,8 @@ class TransactionView extends GetView<TransactionController> {
             color: Colors.white,
             child: TabBar(
               controller: controller.tabController,
-              labelColor: Colors.blue[900],
-              indicatorColor: Colors.blue[900],
+              labelColor: Colors.deepOrange,
+              indicatorColor: Colors.deepOrange,
               unselectedLabelColor: Colors.black,
               labelStyle: normalTextStyle,
               tabs: [
